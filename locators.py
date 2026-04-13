@@ -14,11 +14,14 @@ class TestLocators:
     LOGIN_Password_Input = (By.XPATH, ".//input[@name='Пароль']") #Поле ввода пароля в форме авторизации
     LOGIN_Button = (By.XPATH, ".//button[text() = 'Войти']") #Кнопка входа в форме авторизации
 
-    # Авторизация
-    LOGIN_Main_Button = (By.XPATH, ".//section/button[text() = 'Войти в аккаунт']") #Кнопка 'Войти в аккаунт' на главной странице
+    # Кнопки авторизации
+    LOGIN_Main_Button = (By.XPATH, ".//button[text() = 'Войти в аккаунт']") #Кнопка 'Войти в аккаунт' на главной странице
     LOGIN_Personal_Cabinet_Button = (By.XPATH, ".//p[text() = 'Личный Кабинет']") #Кнопка 'Личный кабинет'
     LOGIN_Form_Registration = (By.XPATH, ".//a[text() = 'Войти']") #Кнопка 'Войти' в форме регистрации
     LOGIN_Password_Recovery_Form = (By.XPATH, ".//a[text() = 'Войти']") #Кнопка 'Войти' в форме восстановления пароля
+
+    #Кнопка оформления заказа
+    MAIN_order_button = (By.XPATH, ".//button[text() = 'Оформить заказ']")
 
     # Переходы
     GOTO_Personal_Cabinet_Button = (By.XPATH, ".//p[text() = 'Личный Кабинет']") #Кнопка перехода в личный кабинет
