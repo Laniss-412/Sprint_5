@@ -26,7 +26,7 @@ class TestLocators:
     # Переходы
     GOTO_Personal_Cabinet_Button = (By.XPATH, ".//p[text() = 'Личный Кабинет']") #Кнопка перехода в личный кабинет
     GOTO_Constructor_Button = (By.XPATH, ".//p[text() = 'Конструктор']") #Кнопка переход в Конструктор
-    GOTO_Logo_Button = (By.XPATH, ".//div[contains(@class, 'header__logo')]") #Клик по логотипу
+    GOTO_Logo_Button = (By.XPATH, ".//a[@href='/']") #Клик по логотипу
 
     #Выход
     LOGOUT_profile_button =(By.XPATH, ".//button[text() = 'Выход']") #Кнопка выхода из профиля в личном кабинете
