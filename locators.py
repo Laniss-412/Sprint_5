@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 class TestLocators:
     
     # Форма регистрации
-    REG_Name_Input = (By.XPATH, "(.//input[@name = 'name'])[1]") #Поле ввода имени в форме регистрации
+    REG_Name_Input = (By.XPATH, ".//input[@name = 'name']") #Поле ввода имени в форме регистрации
     REG_Email_Input = (By.XPATH, "(.//input[@name = 'name'])[2]") #Поле ввода email в форме регистрации
     REG_Password_Input = (By.XPATH, ".//input[@name = 'Пароль']") #Поле ввода пароля в форме регистрации
     REG_Button = (By.XPATH, ".//form/button[text() = 'Зарегистрироваться']") #Кнопка Зарегистрироваться в форме регистрации 
@@ -29,9 +29,9 @@ class TestLocators:
     LOGOUT_profile_button =(By.XPATH, ".//button[text() = 'Выход']") #Кнопка выхода из профиля в личном кабинете
 
     #Разделы конструктора
-    SECTION_Buns = (By.XPATH, ".//span[text() = 'Булки']") #Кнопка раздела Булки
-    SECTION_Sauces = (By.XPATH, ".//span[text() = 'Соусы']") #Кнопка раздела соусы
-    SECTION_Fillings = (By.XPATH, ".//span[text() = 'Начинки']") #Кнопка раздела Начинки
+    SECTION_Buns = (By.XPATH, ".//span[text() = 'Булки']/parent::div") #Кнопка раздела Булки
+    SECTION_Sauces = (By.XPATH, ".//span[text() = 'Соусы']/parent::div") #Кнопка раздела соусы
+    SECTION_Fillings = (By.XPATH, ".//span[text() = 'Начинки']/parent::div") #Кнопка раздела Начинки
 
 
 
