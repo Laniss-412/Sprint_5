@@ -6,7 +6,8 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class TestRegistration:
     def test_registration_success(self, driver):
-        driver.get("https://stellarburgers.education-services.ru/")
+        driver.get("https://stellarburgers.education-services.ru/register")
+        WebDriverWait(driver, 10).until(EC.visibility_of_element_located(TestLocators.REG_Password_Input))
         email = f'ashakov_43_{random.randint(100, 999)}@ya.ru'
 
         driver.find_element(*TestLocators.REG_Name_Input).send_keys("Игорь")
@@ -19,7 +20,7 @@ class TestRegistration:
 
 
     def test_registration_short_password_error(self, driver):
-        driver.get("https://stellarburgers.education-services.ru/")
+        driver.get("https://stellarburgers.education-services.ru/register")
         driver.find_element(*TestLocators.REG_Password_Input).send_keys("123")
         driver.find_element(*TestLocators.REG_Button).click()
 
