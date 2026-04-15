@@ -1,24 +1,17 @@
 import pytest
 from locators import TestLocators
 from urls import Urls
+from helpers import login_user
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 class TestLogin:
-    def login_user(self, driver):
-        WebDriverWait(driver, 5).until(EC.visibility_of_element_located(TestLocators.LOGIN_Email_Input))
-        driver.find_element(*TestLocators.LOGIN_Email_Input).send_keys("ashakov_43_123@yandex.ru")
-        driver.find_element(*TestLocators.LOGIN_Password_Input).send_keys("12345678")
-        driver.find_element(*TestLocators.LOGIN_Button).click()
-
-        WebDriverWait(driver, 10).until(EC.url_to_be(Urls.MAIN_URL))
-    
     def test_login_from_main_page(self, driver):
         driver.get(Urls.MAIN_URL)
 
         driver.find_element(*TestLocators.LOGIN_Main_Button).click()
-        self.login_user(driver)
+        login_user(driver)
 
         button_text = driver.find_element(*TestLocators.MAIN_order_button).text
         assert button_text == "Оформить заказ"
@@ -28,7 +21,7 @@ class TestLogin:
         driver.get(Urls.LOGIN_PAGE)
 
         driver.find_element(*TestLocators.GOTO_Personal_Cabinet_Button).click()
-        self.login_user(driver)
+        login_user(driver)
 
         assert driver.current_url == Urls.MAIN_URL
 
@@ -37,7 +30,7 @@ class TestLogin:
         driver.get(Urls.REGISTRATION_PAGE)
 
         driver.find_element(*TestLocators.LOGIN_Form_Registration).click()
-        self.login_user(driver)
+        login_user(driver)
 
         assert driver.current_url == Urls.MAIN_URL
 
@@ -45,6 +38,6 @@ class TestLogin:
         driver.get(Urls.FORGOT_PASSWORD)
 
         driver.find_element(*TestLocators.LOGIN_Password_Recovery_Form).click()
-        self.login_user(driver)
+        login_user(driver)
 
         assert driver.current_url == Urls.MAIN_URL
