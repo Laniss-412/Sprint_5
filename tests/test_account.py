@@ -1,12 +1,13 @@
 import pytest
 from locators import TestLocators
+from urls import Urls
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 class TestAccount:
     def test_go_to_personal_cabinet(self, driver):
-        driver.get("https://stellarburgers.education-services.ru/login")
+        driver.get(Urls.LOGIN_PAGE)
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(TestLocators.LOGIN_Email_Input))
 
         driver.find_element(*TestLocators.LOGIN_Email_Input).send_keys("ashakov_43_123@yandex.ru")
@@ -14,13 +15,13 @@ class TestAccount:
         driver.find_element(*TestLocators.LOGIN_Button).click()
 
         driver.find_element(*TestLocators.GOTO_Personal_Cabinet_Button).click()
-        WebDriverWait(driver, 5).until(EC.url_contains("/account/profile"))
+        WebDriverWait(driver, 5).until(EC.url_contains(Urls.PROFILE_PAGE))
 
-        assert "/account/profile" in driver.current_url
+        assert Urls.PROFILE_PAGE in driver.current_url
 
 
     def test_logout(self, driver):
-        driver.get("https://stellarburgers.education-services.ru/login")
+        driver.get(Urls.LOGIN_PAGE)
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(TestLocators.LOGIN_Email_Input))
 
         driver.find_element(*TestLocators.LOGIN_Email_Input).send_keys("ashakov_43_123@yandex.ru")
@@ -28,7 +29,8 @@ class TestAccount:
         driver.find_element(*TestLocators.LOGIN_Button).click()
         driver.find_element(*TestLocators.GOTO_Personal_Cabinet_Button).click()
 
-        WebDriverWait(driver, 5).until(EC.element_to_be_clickable(TestLocators.LOGOUT_profile_button)).click()
+        WebDriverWait(driver, 5).until(EC.element_to_be_clickable(TestLocators.LOGOUT_profile_button))
+        driver.find_element(*TestLocators.LOGOUT_profile_button).click()
 
-        WebDriverWait(driver, 5).until(EC.url_contains("/login"))
-        assert "/login" in driver.current_url
+        WebDriverWait(driver, 5).until(EC.url_contains(Urls.LOGIN_PAGE))
+        assert Urls.LOGIN_PAGE in driver.current_url

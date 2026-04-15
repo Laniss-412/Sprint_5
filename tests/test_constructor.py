@@ -1,10 +1,11 @@
 import pytest
 from locators import TestLocators
+from urls import Urls
 from selenium.webdriver.chrome.webdriver import WebDriver
 
 class TestConstructor:
     def test_switch_to_sauces(self, driver):
-        driver.get("https://stellarburgers.education-services.ru/")
+        driver.get(Urls.MAIN_URL)
         
         driver.find_element(*TestLocators.SECTION_Sauces).click()
         active_tab = driver.find_element(*TestLocators.SECTION_Sauces).get_attribute("class")
@@ -12,7 +13,7 @@ class TestConstructor:
 
     
     def test_switch_to_fillings(self, driver):
-        driver.get("https://stellarburgers.education-services.ru/")
+        driver.get(Urls.MAIN_URL)
         
         driver.find_element(*TestLocators.SECTION_Fillings).click()
         active_tab = driver.find_element(*TestLocators.SECTION_Fillings).get_attribute("class")
@@ -20,7 +21,7 @@ class TestConstructor:
 
     
     def test_switch_to_buns(self, driver):
-        driver.get("https://stellarburgers.education-services.ru/")
+        driver.get(Urls.MAIN_URL)
 
         driver.find_element(*TestLocators.SECTION_Sauces).click()
         driver.find_element(*TestLocators.SECTION_Buns).click()
