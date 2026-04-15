@@ -3,15 +3,15 @@ from selenium.webdriver.common.by import By
 class TestLocators:
     
     # Форма регистрации
-    REG_Name_Input = (By.XPATH, ".//input[@name = 'name']") #Поле ввода имени в форме регистрации
-    REG_Email_Input = (By.XPATH, "(.//input[@name = 'name'])[2]") #Поле ввода email в форме регистрации
-    REG_Password_Input = (By.XPATH, ".//input[@name = 'Пароль']") #Поле ввода пароля в форме регистрации
+    REG_Name_Input = (By.XPATH, ".//div[label[text() = 'Имя']]/input") #Поле ввода имени в форме регистрации
+    REG_Email_Input = (By.XPATH, ".//div[label[text() = 'Email']]/input") #Поле ввода email в форме регистрации
+    REG_Password_Input = (By.XPATH, ".//div[label[text() = 'Пароль']]/input") #Поле ввода пароля в форме регистрации
     REG_Button = (By.XPATH, ".//form/button[text() = 'Зарегистрироваться']") #Кнопка Зарегистрироваться в форме регистрации 
     REG_Password_Error = (By.XPATH, ".//p[text() = 'Некорректный пароль']") #Ошибка некорректного пароля в форме регистрации
 
     #Форма входа
-    LOGIN_Email_Input = (By.XPATH, ".//input[@name='name']") #Поле ввода email в форме авторизации
-    LOGIN_Password_Input = (By.XPATH, ".//input[@name='Пароль']") #Поле ввода пароля в форме авторизации
+    LOGIN_Email_Input = (By.XPATH, ".//div[label[text() = 'Email']]/input") #Поле ввода email в форме авторизации
+    LOGIN_Password_Input = (By.XPATH, ".//div[label[text() = 'Пароль']]/input") #Поле ввода пароля в форме авторизации
     LOGIN_Button = (By.XPATH, ".//button[text() = 'Войти']") #Кнопка входа в форме авторизации
 
     # Кнопки авторизации
@@ -35,7 +35,4 @@ class TestLocators:
     SECTION_Buns = (By.XPATH, ".//span[text() = 'Булки']/parent::div") #Кнопка раздела Булки
     SECTION_Sauces = (By.XPATH, ".//span[text() = 'Соусы']/parent::div") #Кнопка раздела соусы
     SECTION_Fillings = (By.XPATH, ".//span[text() = 'Начинки']/parent::div") #Кнопка раздела Начинки
-
-
-
 
